@@ -1,0 +1,83 @@
+    1  # hi Antonio!
+    2  git config --global credential.helper store ###PERSONAL ACCESS TOKEN###
+    3  git config --global user.name "Antonio Palomet"
+    4  git config --global user.email "antonio.palomet@gmail.com"
+    5  pwd
+    6  ls -ltr
+    7  mv ~/mycode/ ~mycode-backup/ 2>/dev/naull
+    8  mv ~/mycode/ ~mycode-backup/ 2>/dev/null
+    9  ls -R
+   10  ls -R | more
+   11  git clone https://github.com/apalomet/alta3_ansible ~/mycode
+   12  cd /home/student/mycode/
+   13  touch alta3research.txt
+   14  git status
+   15  git add *
+   16  git commit -m
+   17  git commit
+   18  git log
+   19  git config
+   20  git config --list
+   21  git push origin HEAD
+   22  git status
+   23  git remote -v
+   24  clear
+   25  cd ~
+   26  bash ~/px/scripts/full-setup.sh
+   27  ssh bender
+   28  ssh fry
+   29  ls -ltra
+   30  vi .ansible.cfg
+   31  ssh zoidberg
+   32  sudo apt install sshpass -y
+   33  ssh fansworth
+   34  ssh farnsworth
+   35  ansible localhost -m ansible.builtin.command -a "whoami"
+   36  ansible localhost -a "pwd"
+   37  ansible localhost -a "ping"
+   38  ansible localhost -a "pwd"
+   39  ansible-doc ansible.builtin.command
+   40  batcat ~/mycode/inv/dev/hosts 
+   41  vim ~/mycode/inv/dev/applerecords
+   42  cat ~/mycode/inv/dev/applerecords
+   43  batcat ~/.ansible.cfg
+   44  cat /home/student/mycode/inv/dev/
+   45  ls -ltr /home/student/mycode/inv/dev/
+   46  ls -R /home/student/mycode/inv/dev/
+   47  more /home/student/mycode/inv/dev/hosts
+   48  ansible planetexpress -i /home/student/mycode/inv/dev/hosts -a "whoami"
+   49  ansible fry -a "whoami"
+   50  ansible --help
+   51  ansible farnsworth -i ~/mycode/inv/dev/ -m ansible.builtin.ping --ask-pass
+   52  ansible-inventory -i ~/mycode/inv/ --list
+   53  ansible-inventory -i ~/mycode/inv/ --graph
+   54  ansible-inventory -i ~/mycode/inv/ --host fry
+   55  cd ~/mycode
+   56  git status
+   57  git add*
+   58  git add *
+   59  git stsatus
+   60  git status
+   61  git commit
+   62  history > lessoncommands.txt
+   63  git status
+   64  git add *
+   65  git commit -m "Added lesson command history"
+   66  git push origin
+   67  vi lessoncommands.txt 
+   68  git add *
+   69  git commit -m "Edited lessoncommand history file to avoid the PAT""
+"
+   70  git push origin
+   71  vi lessoncommands.txt 
+   72  live gtg
+   73  git log
+   74  git rev-list
+   75  git log --pretty=oneline
+   76  git reset --hard HEAD~1
+   77  git log
+   78  git reset --hard HEAD~1
+   79  git log
+   80  git status
+   81  ls -ltr
+   82  history > commands.txt
