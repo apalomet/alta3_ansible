@@ -1,0 +1,17 @@
+  111  bash ~/px/scripts/full-setup.sh
+  112  ansible-doc apt
+  113  pwd
+  114  vi playbook-apt.yml
+  115  batcat ~/mycode/inv/dev/hosts
+  116  more playbook-apt.yml
+  117  ansible-inventory -i ~/mycode/inv/dev/hosts --graph
+  118  ansible-playbook -i ~/mycode/inv/dev/hosts ~/mycode/playbook-apt.yml 
+  119  ssh bender
+  120  ansible-playbook ~/mycode/playbook-apt.yml 
+  121  vi playbook-apt-absent.yml
+  122  ansible-playbook ~/mycode/playbook-apt-absent.yml 
+  123  ssh bender
+  124  ansible-playbook ~/mycode/playbook-apt-absent.yml 
+  125  ls ltr
+  126  ls -ltr
+  127  history > commandslab14.txt
