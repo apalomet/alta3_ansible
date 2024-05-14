@@ -1,0 +1,19 @@
+---
+- name: A simple file playbook
+  hosts: planetexpress
+  gather_facts: yes
+  connection: ansible.builtin.ssh
+
+  tasks:
+   - name: make a directory
+     ansible.builtin.file:
+       path: ~/output/
+       state: directory
+
+   - name: Copy Home env data to path.txt
+     ansible.builtin.copy:
+       content: "{{ ansible_env.HOME}}"
+       dest: ~/output/path.txt
+         #ansible_env.WHATEVS is how you retunr variables
+         #echo $HOME >> ~/output/path.txt
+
