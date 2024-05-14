@@ -1,0 +1,243 @@
+    1  # hi Antonio!
+    3  git config --global user.name "Antonio Palomet"
+    4  git config --global user.email "antonio.palomet@gmail.com"
+    5  pwd
+    6  ls -ltr
+    7  mv ~/mycode/ ~mycode-backup/ 2>/dev/naull
+    8  mv ~/mycode/ ~mycode-backup/ 2>/dev/null
+    9  ls -R
+   10  ls -R | more
+   11  git clone https://github.com/apalomet/alta3_ansible ~/mycode
+   12  cd /home/student/mycode/
+   13  touch alta3research.txt
+   14  git status
+   15  git add *
+   16  git commit -m
+   17  git commit
+   18  git log
+   19  git config
+   20  git config --list
+   21  git push origin HEAD
+   22  git status
+   23  git remote -v
+   24  clear
+   25  cd ~
+   26  bash ~/px/scripts/full-setup.sh
+   27  ssh bender
+   28  ssh fry
+   29  ls -ltra
+   30  vi .ansible.cfg
+   31  ssh zoidberg
+   32  sudo apt install sshpass -y
+   33  ssh fansworth
+   34  ssh farnsworth
+   35  ansible localhost -m ansible.builtin.command -a "whoami"
+   36  ansible localhost -a "pwd"
+   37  ansible localhost -a "ping"
+   38  ansible localhost -a "pwd"
+   39  ansible-doc ansible.builtin.command
+   40  batcat ~/mycode/inv/dev/hosts 
+   41  vim ~/mycode/inv/dev/applerecords
+   42  cat ~/mycode/inv/dev/applerecords
+   43  batcat ~/.ansible.cfg
+   44  cat /home/student/mycode/inv/dev/
+   45  ls -ltr /home/student/mycode/inv/dev/
+   46  ls -R /home/student/mycode/inv/dev/
+   47  more /home/student/mycode/inv/dev/hosts
+   48  ansible planetexpress -i /home/student/mycode/inv/dev/hosts -a "whoami"
+   49  ansible fry -a "whoami"
+   50  ansible --help
+   51  ansible farnsworth -i ~/mycode/inv/dev/ -m ansible.builtin.ping --ask-pass
+   52  ansible-inventory -i ~/mycode/inv/ --list
+   53  ansible-inventory -i ~/mycode/inv/ --graph
+   54  ansible-inventory -i ~/mycode/inv/ --host fry
+   55  cd ~/mycode
+   56  git status
+   57  git add*
+   58  git add *
+   59  git stsatus
+   60  git status
+   61  git commit
+   62  history > lessoncommands.txt
+   63  git status
+   64  git add *
+   65  git commit -m "Added lesson command history"
+   66  git push origin
+   67  vi lessoncommands.txt 
+   68  git add *
+   69  git commit -m "Edited lessoncommand history file to avoid the PAT""
+"
+   70  git push origin
+   71  vi lessoncommands.txt 
+   72  live gtg
+   73  git log
+   74  git rev-list
+   75  git log --pretty=oneline
+   76  git reset --hard HEAD~1
+   77  git log
+   78  git reset --hard HEAD~1
+   79  git log
+   80  git status
+   81  ls -ltr
+   82  history > commands.txt
+   83  vi commands.txt 
+   84  git commit -m "Added commands used"
+   85  git add *
+   86  git commit -m "Added commands used in a command.txt file"
+   87  git push origin
+   88  clear
+   89  bash ~/px/scripts/full-setup.sh
+   90  ansible-doc ansible.builtin.ping
+   91  batcat ~/mycode/inv/dev/hosts
+   92  ansible research -i ~/mycode/inv/dev/hosts -m ansible.builtin.ping
+   93  batcat ~/.ssh/config
+   94* 
+   95  ansible research -i ~/mycode/inv/dev/hosts -m ansible.builtin.ping -v
+   96  ansible research -i ~/mycode/inv/dev/hosts -m ansible.builtin.ping -vv
+   97  ansible research -i ~/mycode/inv/dev/hosts -m ansible.builtin.ping -vvv
+   98  ansible h2 -i ~/mycode/inv/dev/hosts -m setup
+   99  ansible h2 -i ~/mycode/inv/dev/hosts -m setup | less
+  100  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_processir_cores"
+  101  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_processor_codes""
+"
+  102  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_processor_codes"
+  103  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_processor_cores"
+  104  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_date_time"
+  105  ansible research -i ~/mycode/inv/dev/hosts -m setup -a "filter=ansible_all_ipv4_addresses"
+  106  ansible h2 -i ~/mycode/inv/dev/hosts -m setup > ~/setup.output
+  107  batcat ~/setup.output
+  108  live gtg
+  109  batcat ~/setup.output
+  110  qq
+  111  bash ~/px/scripts/full-setup.sh
+  112  ansible-doc apt
+  113  pwd
+  114  vi playbook-apt.yml
+  115  batcat ~/mycode/inv/dev/hosts
+  116  more playbook-apt.yml
+  117  ansible-inventory -i ~/mycode/inv/dev/hosts --graph
+  118  ansible-playbook -i ~/mycode/inv/dev/hosts ~/mycode/playbook-apt.yml 
+  119  ssh bender
+  120  ansible-playbook ~/mycode/playbook-apt.yml 
+  121  vi playbook-apt-absent.yml
+  122  ansible-playbook ~/mycode/playbook-apt-absent.yml 
+  123  ssh bender
+  124  ansible-playbook ~/mycode/playbook-apt-absent.yml 
+  125  ls ltr
+  126  ls -ltr
+  127  history > commandslab14.txt
+  128  vi commandslab14.txt 
+  129  git status
+  130  git add *
+  131  git commit "Fisrt playbook created"
+  132  git push origin
+  133  git commit -m "First playbook created"
+  134  git push origin
+  135  live gtg
+  136  clear
+  137  llm --help
+  138  llm "Five cute names for a pet penguin"
+  139  llm 'python function that accepts a string and returns that string plus Alta3 appended to the end'
+  140  llm 'python code that bakes a cupcake'
+  141  vim simple_no_comments.sh
+  142  bash simple_no_comments.sh
+  143  cat simple_no_comments.sh | llm -s "explain this code"
+  144  live gtg
+  145  clear
+  146  cd ..
+  147  pwd
+  148  rm .ansible.cfg 2>/dev/null
+  149  ls -ltra
+  150  vi .ansible.cfg
+  151  more .ansible.cfg
+  152  ansible-config dump
+  153  more .ansible.cfg
+  154  ansible-config dump
+  155  ansible-config init --disabled -t all > ansible-example.cfg
+  156  more ansible-example.cfg 
+  157  ls -ltr
+  158  mv ansible-example.cfg ~/ mycode/ansible-example.cfg
+  159  mv ansible-example.cfg ~/mycode/ansible-example.cfg
+  160  cd mycode/
+  161  vi playbookcmd.yml
+  162  sudo apt install cowsay -y
+  163  vim ~/.ansible.cfg
+  164  ansible-playbook playbookcmd.yml 
+  165  vim ~/.ansible.cfg
+  166  ansible-playbook playbookcmd.yml 
+  167  live gtg
+  168  git status
+  169  git add *
+  170  git commit -m "Added playbook and others"
+  171  git push origin
+  172  clear
+  173  bash ~/px/scripts/full-setup.sh
+  174  sudo apt remove cowsay -y
+  175  bash ~/px/scripts/full-setup.sh
+  176  ping -c 1 indy
+  177  batcat ~/mycode/inv/dev/hosts
+  178  batcat ~/ansible.cfg
+  179  batcat ~/.ansible.cfg
+  180  python3 --version
+  181  ssh indy
+  182  ansible -m ping raiders -i ~/mycode/inv/dev/
+  183  ansible -m raw raiders -i ~/mycode/inv/dev/ -a "apt-get update" -b
+  184  ansible -m raw raiders -i ~/mycode/inv/dev/ -a "apt install python3-pip -y" -b
+  185  ansible -m ping raiders -i ~/mycode/inv/dev/
+  186  vim ~/mycode/bootstrap-new-user.yml
+  187  ansible-playbook bootstrap-new-user.yml -i inv/dev/
+  188  ssh indy
+  189  vim ~/mycode/remove-new-user.yml
+  190  ansible-playbook ~/mycode/remove-new-user.yml -i ~/mycode/inv/dev/
+  191  ssh indy
+  192  git status
+  193  git add *
+  194  git commit -m "Multistep playbook"
+  195  git push origin
+  196  live gtg
+  197  bash ~/px/scripts/full-setup.sh
+  198  sudo apt remove cowsay -y
+  199  ls -ltr
+  200  vim tuesdaychallenge.yml
+  201  ansible-playbook tuesdaychallenge.yml
+  202  vim tuesdaychallenge.yml
+  203  ansible-playbook tuesdaychallenge.yml
+  204  vim tuesdaychallenge.yml
+  205  ansible-playbook tuesdaychallenge.yml
+  206  vim tuesdaychallenge.yml
+  207  ansible-playbook tuesdaychallenge.yml
+  208  vim tuesdaychallenge.yml
+  209  ansible-playbook tuesdaychallenge.yml
+  210  vim tuesdaychallenge.yml
+  211  ansible-playbook tuesdaychallenge.yml
+  212  vim tuesdaychallenge.yml
+  213  ansible-playbook tuesdaychallenge.yml
+  214  vim tuesdaychallenge.yml
+  215  ansible-playbook tuesdaychallenge.yml
+  216  ssh bender
+  217  live gtg
+  218  bash ~/px/scripts/full-setup.sh
+  219  batcat ~/mycode/inv/dev/hosts
+  220  more ~/mycode/inv/dev/hosts
+  221  ssh indy
+  222  ansible-doc ansible.builtin.raw
+  223  ansible-doc ansible.builtin.group
+  224  ansible-doc ansible.builtin.user
+  225  vi playbook01.yml
+  226  ansible-playbook ~/mycode/playbook01.yml -i ~/mycode/inv/dev/
+  227  ssh indy
+  228  vi playbook01loop.yml
+  229  ansible-playbook ~/mycode/playbook01loop.yml -i ~/mycode/inv/dev/
+  230  mkdir -p ~/mycode/vars/
+  231  vim ~/mycode/vars/newusers1.yml
+  232  vim ~/mycode/playbook01filesloop.yml
+  233  ansible-playbook ~/mycode/playbook01filesloop.yml -i ~/mycode/inv/dev/
+  234  vim ~/mycode/vars/newusers2.yml
+  235  vim ~/mycode/bootstrap-varsfiles.yml
+  236  ansible-playbook ~/mycode/bootstrap-varsfiles.yml -i ~/mycode/inv/dev/
+  237  ssh indy
+  238  vim ~/mycode/vars/aptpkgs.yml
+  239  vim ~/mycode/playbook01files02.yml
+  240  ansible-playbook ~/mycode/playbook01files02.yml -i ~/mycode/inv/dev/
+  241  ssh indy
+  242  history > lab17loops.txt
