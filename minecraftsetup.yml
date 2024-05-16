@@ -1,0 +1,96 @@
+---
+- name: Thursday morning challenge
+  hosts: zoidberg
+  connection: ssh
+  gather_facts: no
+  become: yes
+
+  vars:
+    mc_server_link: https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar
+
+  tasks:
+
+  - name: install apps
+    block:
+        - name: Update apt cache
+          apt:
+            update_cache: yes
+
+  - name: Block for rescuing Install apps for Minecraft serer
+    block:
+      - name: Install apps for minecraft server
+        apt:
+          name: fail2ban
+          state: present
+    rescue:
+      - name: Rescue Install apps for Minecraft server
+        apt:
+          name: fail2ban
+          state: absent
+      - name: Display failed message
+        fail:
+          msg: "Install apps for Minecraft server failed"
+
+  - name: Setup fail2ban (ssh protection)
+    become: yes
+    block:
+
+        - name: Update sshd section in jail.local
+          ansible.builtin.replace:
+            path: /etc/fail2ban/jail.conf
+            regexp: |
+              (\[sshd\]\n\n# To use more aggressive sshd modes set filter parameter "mode" in jail.local:\n# normal \(default\), ddos, extra or aggressive \(combines all\).\n# See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.\n#mode   = normal\nport    = ssh\n)logpath = %\(sshd_log\)s\nbackend = %\(sshd_backend\)s
+            replace: |
+              \1backend=systemd
+            backup: yes
+          notify:
+            - restart_fail2ban
+          tags:
+          - updatesshd
+
+        - name: Get stats of the FS object
+          ansible.builtin.stat:
+            path: /etc/fail2ban/jail.local
+          register: existence
+
+        - debug:
+            var: existence
+
+        - name: Copy fail2ban
+          copy:
+            src: /etc/fail2ban/jail.conf
+            dest: /etc/fail2ban/jail.local
+            remote_src: true
+          when: existence.stat.exists == false
+          notify:
+            - restart_fail2ban
+          tags:
+            copyconf
+
+        - name: Update fail2ban policy
+          lineinfile:
+            dest: /etc/fail2ban/jail.local
+            regexp: "^bantime  = 600$"
+            line: "bantime  = 20000"
+          notify:
+            - restart_fail2ban
+          tags:
+          - updateconf
+
+  - name: download minecraft server jar file
+    block:
+      - name: Add a directory
+        file:
+          path: "/home/{{ ansible_user }}/minecraft"
+          state: directory
+
+      - name: Download minecraft server
+        get_url:
+          url: "{{ mc_server_link }}"
+          dest: /home/{{ ansible_user }}/minecraft/minecraft_server.jar
+  
+  handlers:
+  - name: restart_fail2ban
+    service:
+       name: fail2ban
+       state: restarted
