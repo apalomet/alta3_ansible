@@ -1,0 +1,42 @@
+---
+- name: Fetch Pokémon data using the pokeapi module
+  hosts: localhost
+  gather_facts: no
+
+  collections:
+    - rzfeeser.pokeapi
+
+  vars_prompt:
+    - name: "poke_pick"
+      prompt: "Pick a Pokemon"
+      default: "pikachu"
+
+  tasks:
+    #- name: Using the name of a Pokémon, collect API data
+    #rzfeeser.pokeapi.pokeapi_info:
+    #resource: pokemon
+    #name: "mewtwo"
+    #register: pokemon_data
+
+    - debug:
+        var: poke_pick|lower
+
+    - name: Using the name of a Pokémon, collect API data
+      rzfeeser.pokeapi.pokeapi_info:
+        resource: pokemon
+        name: "{{ poke_pick|lower }}" ### add |lower to the end of your variable here
+          #name: "mewtwo"
+      register: pokemon_data
+
+    - name: the set_fact module lets you declare a new variable mid-play!
+      set_fact:
+        pic_url_var: "{{ pokemon_data.pokeapi_json.sprites.front_default }}"
+
+    - name: print out the URL to a picture of your selected pokemon
+      debug:
+        var: pic_url_var
+
+    - name: download picture
+      get_url:
+        url: "{{ pic_url_var }}"
+        dest: /home/student/static/
